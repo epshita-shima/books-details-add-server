@@ -22,6 +22,12 @@ async function run() {
             res.send(data);
         })
 
+        app.post('/info', async (req, res) => {
+            const newInfo = req.body;
+            console.log("addning new info", newInfo);
+            const result = await booksCollection.insertOne(newInfo);
+            res.send(result);
+        })
 
     }
     finally {
